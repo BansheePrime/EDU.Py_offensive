@@ -1,0 +1,28 @@
+---
+- name: Updating Ubuntu 20.04 and initial package installation.
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Update apt cache.
+      apt:
+        update_cache: true
+        force_apt_get: true
+        cache_valid_time: 3600
+
+    - name: Install required packages.
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - curl
+        - wget
+        - git
+        - python3-pip
+        - ansible
+
+    - name: Upgrade packages.
+      apt:
+        name: "*"
+        state: latest
