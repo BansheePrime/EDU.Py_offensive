@@ -11,6 +11,8 @@ def connect():
 
     while True:
         command = input('Shell> ')
+        # shell_command = input('Shell> ')
+        # command = shell_command.decode()
         if 'terminate' in command:
             conn.send('terminate')
             conn.close()

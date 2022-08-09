@@ -8,6 +8,7 @@ def connect():
 
     while True:
         command = s.recv(1024)
+        # command = s.recv(1024).decode("utf-8", "ignore")
 
         if 'terminate' in command:
             s.close()
