@@ -11,17 +11,17 @@ def connect():
 
     while True:
         command = input('Shell> ')
-        # shell_command = input('Shell> ')
-        # command = shell_command.decode()
         if 'terminate' in command:
             conn.send('terminate')
             conn.close()
             break
         else:
-            conn.send(command)
+            conn.send(command.encode("utf-8"))
             print(conn.recv(1024))
 
 def main ():
     connect()
 
 main()
+# if __name__=='__main__':
+#     main()

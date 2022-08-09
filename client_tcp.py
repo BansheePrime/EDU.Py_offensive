@@ -7,8 +7,8 @@ def connect():
     s.connect(("192.168.60.5", 8282))
 
     while True:
-        command = s.recv(1024)
-        # command = s.recv(1024).decode("utf-8", "ignore")
+
+        command = s.recv(1024).decode("utf-8", "ignore")
 
         if 'terminate' in command:
             s.close()
