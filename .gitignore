@@ -2,3 +2,4 @@
 Python-for-Offensive-PenTest/
 .vagrant/
 *.log
+venv/
